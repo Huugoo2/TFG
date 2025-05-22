@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mis Citas</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <main class="container mt-5">
+    <h2 class="text-center">Reservar una cita</h2>
+    <form id="citaForm" class="mb-4">
+      <input class="form-control mb-2" type="date" id="fecha" required>
+      <input class="form-control mb-2" type="time" id="hora" required>
+      <input class="form-control mb-2" type="text" id="actividad" placeholder="Actividad" required>
+      <button class="btn btn-success" type="submit">Guardar</button>
+    </form>
+
+    <h4>Tus citas:</h4>
+    <div id="listaCitas" class="mt-3"></div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script type="module">
+    import { auth, db } from "../assets/js/scripts.js";
+    import {
+      collection, addDoc, getDocs, deleteDoc, doc, query, where, updateDoc
+    } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    const citaForm = document.getElementById("citaForm");
+    const listaCitas = document.getElementById("listaCitas");
+    let editando = false;
+    let citaIdEditar = null;
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        alert("Debes iniciar sesión para ver tus citas.");
+        window.location.href = "login.html";
+        return;
+      }
+
+      const cargarCitas = async () => {
+        const q = query(collection(db, "citas"), where("uid", "==", user.uid));
+        const snapshot = await getDocs(q);
+        listaCitas.innerHTML = "";
+        snapshot.forEach(docu => {
+          const cita = docu.data();
+          listaCitas.innerHTML += `
+            <div class="card p-3 my-2">
+              <strong>${cita.fecha}</strong> - ${cita.hora} - ${cita.actividad}
+              <div class="float-end">
+                <button class="btn btn-sm btn-warning me-2" onclick="editarCita('${docu.id}', '${cita.fecha}', '${cita.hora}', '${cita.actividad}')">Editar</button>
+                <button class="btn btn-sm btn-danger" onclick="eliminarCita('${docu.id}')">Eliminar</button>
+              </div>
+            </div>
+          `;
+        });
+      };
+
+      citaForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const fecha = document.getElementById("fecha").value;
+        const hora = document.getElementById("hora").value;
+        const actividad = document.getElementById("actividad").value;
+
+        if (editando && citaIdEditar) {
+          await updateDoc(doc(db, "citas", citaIdEditar), {
+            fecha,
+            hora,
+            actividad
+          });
+          editando = false;
+          citaIdEditar = null;
+        } else {
+          await addDoc(collection(db, "citas"), {
+            uid: user.uid,
+            fecha,
+            hora,
+            actividad
+          });
+        }
+
+        citaForm.reset();
+        cargarCitas();
+      });
+
+      window.eliminarCita = async (id) => {
+        await deleteDoc(doc(db, "citas", id));
+        cargarCitas();
+      };
+
+      window.editarCita = (id, fecha, hora, actividad) => {
+        document.getElementById("fecha").value = fecha;
+        document.getElementById("hora").value = hora;
+        document.getElementById("actividad").value = actividad;
+        editando = true;
+        citaIdEditar = id;
+      };
+
+      cargarCitas();
+    });
+  </script>
+
+  <script>
+    fetch("../components/navbar.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("navbar").innerHTML = data);
+
+    fetch("../components/footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "gym-website",
+  "version": "1.0.0",
+  "description": "Sitio web para un gimnasio con funcionalidades de autenticación y gestión de citas.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "keywords": [
+    "gimnasio",
+    "sitio web",
+    "express",
+    "mongodb"
+  ],
+  "author": "Tu Nombre",
+  "license": "ISC"
+  
+}

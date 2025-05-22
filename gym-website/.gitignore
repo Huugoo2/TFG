@@ -1,0 +1,15 @@
+# Dependencias
+node_modules/
+
+# Archivos de entorno
+.env
+
+# Editor
+.vscode/
+
+# Archivos de compilación
+dist/
+
+# Archivos temporales
+*.log
+.DS_Store

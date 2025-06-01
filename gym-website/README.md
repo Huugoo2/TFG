@@ -1,52 +1,57 @@
 # Gym Website
+Este proyecto es una página web desarrollada como parte del Trabajo de Fin de Grado (TFG), orientada a la gestión de un gimnasio. Permite a los usuarios:
 
-Este proyecto es un sitio web para un gimnasio que permite a los usuarios registrarse, iniciar sesión, gestionar citas y explorar los servicios y actividades disponibles. A continuación se detalla la estructura del proyecto y su funcionalidad.
+- Registrarse e iniciar sesión mediante Firebase Authentication
+- Reservar citas con el gimnasio
+- Consultar servicios y actividades
+- Acceder a su historial de pedidos y perfil
+- Realizar pedidos desde una tienda online
 
 ## Estructura del Proyecto
 
 ```
-gym-website
-├── public/
-│   ├── css/
-│   │   └── estilos.css
-│   ├── js/
-│   │   └── main.js
-│   └── img/
-├── views/
-│   ├── index.ejs
-│   ├── login.ejs
-│   ├── register.ejs
-│   ├── actividades.ejs
-│   ├── tienda.ejs
-│   ├── servicios.ejs
-│   ├── citas.ejs
-│   └── perfil.ejs
-├── routes/
-│   ├── authRoutes.js
-│   ├── citasRoutes.js
-│   └── mainRoutes.js
-├── controllers/
-│   ├── authController.js
-│   ├── citasController.js
-│   └── mainController.js
-├── models/
-│   └── citaModel.js
-├── .env
+gym-website/
+├── src/
+│ ├── assets/
+│ │ └── js/
+│ ├── components/
+│ │ ├── footer.html
+│ │ └── navbar.html
+│ ├── pages/
+│ │ ├── about.html
+│ │ ├── activities.html
+│ │ ├── admin-citas.html
+│ │ ├── appointments.html
+│ │ ├── contact.html
+│ │ ├── index.html
+│ │ ├── login.html
+│ │ ├── register.html
+│ │ ├── services.html
+│ │ └── store.html
+│ └── utils/
+│ └── helpers.js
 ├── .gitignore
-├── app.js
-└── package.json
+├── bs-config.json
+├── package.json
+├── package-lock.json
+└── README.md
 ```
 
-## Instalación
+## Tecnologías utilizadas
 
-1. Clona el repositorio en tu máquina local.
-2. Navega al directorio del proyecto.
-3. Ejecuta `npm install` para instalar las dependencias.
+- HTML5, CSS3 y JavaScript
+- Firebase (Authentication, Firestore, Storage)
+- Visual Studio Code
+- Live Server (extensión de VSCode para entorno local)
 
-## Uso
+##  Uso del Proyecto
 
-- Inicia el servidor con `node app.js`.
-- Accede a la aplicación en tu navegador en `http://localhost:3000`.
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/Huugoo2/TFG.git
+ 
+ Abre el proyecto en Visual Studio Code.
+Usa la extensión Live Server...
 
 ## Contribuciones
 

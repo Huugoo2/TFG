@@ -11,6 +11,7 @@
 <body>
   <div id="navbar"></div>
 
+  <!-- Banner -->
   <section class="page-banner">
     <img src="../assets/images/hombre.png" alt="Servicios">
     <div class="banner-text">
@@ -18,17 +19,83 @@
     </div>
   </section>
 
-  <main class="container mt-5">
-    <h1 class="text-center">Servicios Adicionales</h1>
-    <div class="list-group mt-4">
-      <button class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modalNutricion">Asesoría nutricional personalizada</button>
-      <button class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modalEntrenamiento">Entrenamiento personal 1 a 1</button>
-      <button class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modalRutinas">Planificación de rutinas semanales</button>
-      <button class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modalBioimpedancia">Valoración corporal con bioimpedancia</button>
+  <!-- Contenido -->
+  <main class="container my-5">
+    <h2 class="text-center mb-4">Servicios Adicionales</h2>
+    <div class="row g-4">
+
+      <!-- Nutrición -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalNutricion">
+          <img src="../assets/images/nutricion.jpg" class="card-img-top" alt="Nutrición">
+          <div class="card-body">
+            <h5 class="card-title">Nutrición</h5>
+            <p class="card-text">Plan personalizado para tu alimentación y objetivos.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entrenamiento -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalEntrenamiento">
+          <img src="../assets/images/entrenamientopersonal.jpg" class="card-img-top" alt="Entrenamiento">
+          <div class="card-body">
+            <h5 class="card-title">Entrenamiento 1 a 1</h5>
+            <p class="card-text">Sesiones enfocadas totalmente en ti, con seguimiento personalizado.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rutinas -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalRutinas">
+          <img src="../assets/images/rutinas.jpeg" class="card-img-top" alt="Rutinas">
+          <div class="card-body">
+            <h5 class="card-title">Rutinas Semanales</h5>
+            <p class="card-text">Organiza tus entrenamientos por semana según tus metas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bioimpedancia -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalBioimpedancia">
+          <img src="../assets/images/bioimpedancia.jpg" class="card-img-top" alt="Bioimpedancia">
+          <div class="card-body">
+            <h5 class="card-title">Valoración Corporal</h5>
+            <p class="card-text">Análisis completo de tu composición corporal.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spa -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalSpa">
+          <img src="../assets/images/spa.jpg" class="card-img-top" alt="Spa">
+          <div class="card-body">
+            <h5 class="card-title">Spa y Recuperación</h5>
+            <p class="card-text">Masajes, sauna y recuperación muscular post-entrenamiento.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consulta de objetivos -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalConsulta">
+          <img src="../assets/images/consulta.jpg" class="card-img-top" alt="Consulta de objetivos">
+          <div class="card-body">
+            <h5 class="card-title">Consulta de Objetivos</h5>
+            <p class="card-text">Entrevista con entrenador para definir tus metas y seguimiento.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </main>
 
-  <!-- Modales -->
+  <!-- MODALES -->
+
+  <!-- Nutrición -->
   <div class="modal fade" id="modalNutricion" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content p-4">
@@ -41,6 +108,7 @@
     </div>
   </div>
 
+  <!-- Entrenamiento -->
   <div class="modal fade" id="modalEntrenamiento" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content p-4">
@@ -53,6 +121,7 @@
     </div>
   </div>
 
+  <!-- Rutinas -->
   <div class="modal fade" id="modalRutinas" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content p-4">
@@ -65,6 +134,7 @@
     </div>
   </div>
 
+  <!-- Bioimpedancia -->
   <div class="modal fade" id="modalBioimpedancia" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content p-4">
@@ -77,6 +147,33 @@
     </div>
   </div>
 
+  <!-- Spa -->
+  <div class="modal fade" id="modalSpa" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <h5>Spa y recuperación</h5>
+        <p><strong>Duración:</strong> 1 hora</p>
+        <p><strong>Precio:</strong> 20€ por sesión</p>
+        <p>Accede a instalaciones de spa, masaje y recuperación muscular.</p>
+        <button class="btn btn-secondary mt-2" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consulta -->
+  <div class="modal fade" id="modalConsulta" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <h5>Consulta de objetivos</h5>
+        <p><strong>Duración:</strong> 30 minutos</p>
+        <p><strong>Precio:</strong> 5€</p>
+        <p>Sesión inicial con entrenador para evaluar objetivos y plan personalizado.</p>
+        <button class="btn btn-secondary mt-2" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
   <script>
     fetch("../components/navbar.html")
       .then(res => res.text())

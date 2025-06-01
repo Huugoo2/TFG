@@ -9,38 +9,87 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
   <div id="navbar"></div>
 
-  <!-- Banner superior -->
+  <!-- Banner -->
   <section class="page-banner">
     <img src="../assets/images/instalaciones.png" alt="Actividades">
     <div class="banner-text">
       <h1>Actividades</h1>
     </div>
   </section>
-  
-  <!-- Contenido principal -->
+
   <main class="container my-5">
     <h2 class="text-center mb-4">Nuestras Actividades</h2>
-    <div class="row">
+    <div class="row g-4">
+
+      <!-- Spinning -->
       <div class="col-md-4">
-        <div class="card p-3" data-bs-toggle="modal" data-bs-target="#modalSpinning" style="cursor: pointer;">
-          <h4>Spinning</h4>
-          <p>Sesiones intensas para quemar calorías y mejorar resistencia.</p>
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalSpinning">
+          <img src="../assets/images/spinning.jpg" class="card-img-top" alt="Spinning">
+          <div class="card-body">
+            <h5 class="card-title">Spinning</h5>
+            <p class="card-text">Sesiones intensas para quemar calorías y mejorar resistencia.</p>
+          </div>
         </div>
       </div>
+
+      <!-- CrossFit -->
       <div class="col-md-4">
-        <div class="card p-3" data-bs-toggle="modal" data-bs-target="#modalCrossfit" style="cursor: pointer;">
-          <h4>CrossFit</h4>
-          <p>Entrenamiento funcional de alta intensidad para todos los niveles.</p>
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalCrossfit">
+          <img src="../assets/images/crosfit.png" class="card-img-top" alt="CrossFit">
+          <div class="card-body">
+            <h5 class="card-title">CrossFit</h5>
+            <p class="card-text">Entrenamiento funcional de alta intensidad para todos los niveles.</p>
+          </div>
         </div>
       </div>
+
+      <!-- Yoga -->
       <div class="col-md-4">
-        <div class="card p-3" data-bs-toggle="modal" data-bs-target="#modalYoga" style="cursor: pointer;">
-          <h4>Yoga</h4>
-          <p>Relájate, mejora tu flexibilidad y encuentra el equilibrio interior.</p>
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalYoga">
+          <img src="../assets/images/yoga.jpg" class="card-img-top" alt="Yoga">
+          <div class="card-body">
+            <h5 class="card-title">Yoga</h5>
+            <p class="card-text">Relájate, mejora tu flexibilidad y encuentra el equilibrio interior.</p>
+          </div>
         </div>
       </div>
+
+      <!-- Zumba -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalZumba">
+          <img src="../assets/images/zumba.jpg" class="card-img-top" alt="Zumba">
+          <div class="card-body">
+            <h5 class="card-title">Zumba</h5>
+            <p class="card-text">Baila, quema calorías y diviértete con sesiones dinámicas llenas de ritmo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Musculación -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalMusculacion">
+          <img src="../assets/images/musculacion.jpg" class="card-img-top" alt="Musculación">
+          <div class="card-body">
+            <h5 class="card-title">Musculación</h5>
+            <p class="card-text">Trabaja tu fuerza y volumen muscular con rutinas personalizadas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estiramientos -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow" role="button" data-bs-toggle="modal" data-bs-target="#modalEstiramientos">
+          <img src="../assets/images/estiramientos.jpg" class="card-img-top" alt="Estiramientos">
+          <div class="card-body">
+            <h5 class="card-title">Estiramientos</h5>
+            <p class="card-text">Sesiones suaves para mejorar flexibilidad y prevenir lesiones.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </main>
 
@@ -81,10 +130,47 @@
     </div>
   </div>
 
+  <div class="modal fade" id="modalZumba" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <h5>Zumba</h5>
+        <p><strong>Duración:</strong> 50 minutos</p>
+        <p><strong>Packs:</strong> 8 clases - 30€, 12 clases - 45€, Ilimitadas - 60€</p>
+        <p>Diviértete mientras haces cardio al ritmo de la música latina.</p>
+        <button class="btn btn-secondary mt-2" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalMusculacion" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <h5>Musculación</h5>
+        <p><strong>Duración:</strong> Libre</p>
+        <p><strong>Horario:</strong> Acceso completo al área de pesas durante el día</p>
+        <p>Desarrolla masa muscular y fuerza con el equipo de última generación.</p>
+        <button class="btn btn-secondary mt-2" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalEstiramientos" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <h5>Estiramientos</h5>
+        <p><strong>Duración:</strong> 30 minutos</p>
+        <p><strong>Frecuencia:</strong> Diario antes o después del ejercicio</p>
+        <p>Mejora tu rango de movimiento y reduce el riesgo de lesiones con ejercicios suaves guiados.</p>
+        <button class="btn btn-secondary mt-2" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     fetch("/gym-website/src/components/navbar.html")
       .then(res => res.text())
       .then(data => document.getElementById("navbar").innerHTML = data);
   </script>
+
 </body>
 </html>

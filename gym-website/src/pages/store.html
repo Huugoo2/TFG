@@ -19,41 +19,83 @@
 
   <main class="container mt-5">
     <h1 class="text-center">Tienda de Productos</h1>
-    <div class="row mt-4" id="productos-container">
 
+    <div class="row mt-4" id="productos-container">
+      <!-- Productos (6 en total, ya con atributos data-img) -->
       <div class="col-md-4">
         <div class="product-card">
-          <img src="../assets/images/proteina.png" alt="Proteína Whey">
+          <img src="../assets/images/proteina.jpg" alt="Proteína Whey">
           <div class="product-info">
             <h5>Proteína Whey 1kg</h5>
             <p class="price">29,99 € <span class="discount">24,99 €</span></p>
-            <button class="btn btn-primary" onclick="añadirAlCarrito('Proteína Whey 1kg')">Comprar</button>
+            <button class="btn btn-primary comprar-btn" data-producto="Proteína Whey 1kg" data-precio="29.99" data-img="../assets/images/proteina.jpg">Comprar</button>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="product-card">
-          <img src="../assets/images/guantes.png" alt="Guantes">
+          <img src="../assets/images/guantes.jpg" alt="Guantes">
           <div class="product-info">
             <h5>Guantes de gimnasio</h5>
             <p class="price">14,95 € <span class="discount">11,95 €</span></p>
-            <button class="btn btn-primary" onclick="añadirAlCarrito('Guantes de gimnasio')">Comprar</button>
+            <button class="btn btn-primary comprar-btn" data-producto="Guantes de gimnasio" data-precio="14.95" data-img="../assets/images/guantes.jpg">Comprar</button>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="product-card">
-          <img src="../assets/images/shaker.png" alt="Shaker">
+          <img src="../assets/images/shake.jpg" alt="Shaker">
           <div class="product-info">
             <h5>Shaker 500ml</h5>
             <p class="price">6,99 € <span class="discount">5,49 €</span></p>
-            <button class="btn btn-primary" onclick="añadirAlCarrito('Shaker 500ml')">Comprar</button>
+            <button class="btn btn-primary comprar-btn" data-producto="Shaker 500ml" data-precio="6.99" data-img="../assets/images/shake.jpg">Comprar</button>
           </div>
         </div>
       </div>
 
+      <div class="col-md-4">
+        <div class="product-card">
+          <img src="../assets/images/creatina.jpg" alt="Creatina">
+          <div class="product-info">
+            <h5>Creatina Monohidratada</h5>
+            <p class="price">19,99 € <span class="discount">16,99 €</span></p>
+            <button class="btn btn-primary comprar-btn" data-producto="Creatina Monohidratada" data-precio="19.99" data-img="../assets/images/creatina.jpg">Comprar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="product-card">
+          <img src="../assets/images/cuerdas.jpg" alt="Cuerda">
+          <div class="product-info">
+            <h5>Cuerda para saltar Pro</h5>
+            <p class="price">12,00 € <span class="discount">9,99 €</span></p>
+            <button class="btn btn-primary comprar-btn" data-producto="Cuerda para saltar Pro" data-precio="12.00" data-img="../assets/images/cuerdas.jpg">Comprar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="product-card">
+          <img src="../assets/images/mancuernasadaptables.jpg" alt="Mancuernas">
+          <div class="product-info">
+            <h5>Mancuernas ajustables 10kg</h5>
+            <p class="price">39,99 € <span class="discount">34,99 €</span></p>
+            <button class="btn btn-primary comprar-btn" data-producto="Mancuernas ajustables 10kg" data-precio="39.99" data-img="../assets/images/mancuernasadaptables.jpg">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrito visual -->
+    <div class="mt-5">
+      <h3>Carrito de Compras</h3>
+      <div id="carrito-lista">
+        <p class="text-muted">No hay productos añadidos.</p>
+      </div>
+      <button class="btn btn-danger mt-3" onclick="vaciarCarrito()">Vaciar carrito</button>
     </div>
   </main>
 
@@ -61,6 +103,43 @@
     fetch("../components/navbar.html")
       .then(res => res.text())
       .then(data => document.getElementById("navbar").innerHTML = data);
+  </script>
+
+  <script>
+    // Mostrar productos en el carrito
+    document.addEventListener("DOMContentLoaded", () => {
+      const carritoLista = document.getElementById("carrito-lista");
+
+      document.querySelectorAll(".comprar-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const nombre = btn.dataset.producto;
+          const precio = btn.dataset.precio;
+          const imgSrc = btn.dataset.img;
+
+          // Eliminar el mensaje de vacío si existe
+          if (carritoLista.querySelector("p")) {
+            carritoLista.innerHTML = '';
+          }
+
+          const item = document.createElement("div");
+          item.classList.add("d-flex", "align-items-center", "mb-2");
+          item.innerHTML = `
+            <img src="${imgSrc}" alt="${nombre}" width="50" height="50" class="me-2 rounded">
+            <div>
+              <strong>${nombre}</strong><br>
+              <span>${precio} €</span>
+            </div>
+          `;
+          carritoLista.appendChild(item);
+        });
+      });
+    });
+
+    // Vaciar carrito
+    function vaciarCarrito() {
+      const carritoLista = document.getElementById("carrito-lista");
+      carritoLista.innerHTML = '<p class="text-muted">No hay productos añadidos.</p>';
+    }
   </script>
 
   <script type="module" src="../assets/js/scripts.js"></script>
